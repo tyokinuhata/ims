@@ -6,7 +6,7 @@
         <div>
             <form method="POST" action="">
                 @csrf
-                <input type="text" placeholder="ユーザID" class="form-control col-md-8 d-inline mb-4 mr-2" autofocus>
+                <input type="text" placeholder="ユーザID" class="form-control col-md-8 d-inline mb-4 mr-2" autofocus required>
                 <button type="submit" class="btn btn-primary">検索</button>
             </form>
             <div class="mb-2">
