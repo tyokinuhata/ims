@@ -42,7 +42,7 @@
                 </tr>
             </table>
             <div>
-                <a href="{{ url('/seller/user/edit') }}">ユーザ情報編集</a>
+                <a href="{{ url('/seller/user/change') }}">ユーザ情報編集</a>
             </div>
         </div>
     </div>
