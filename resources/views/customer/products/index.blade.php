@@ -48,13 +48,11 @@
                     </tr>
                 </table>
                 <div>
-                    <a href="{{ url('/customer/products/edit') }}" class="btn btn-success">編集</a>
-                    <button type="submit" class="btn btn-danger">削除</button>
-                    <a href="{{ url('/customer/products/detail') }}" class="btn btn-primary">売上詳細</a>
+                    <form method="POST" action="">
+                        <input type="number" class="form-control d-inline col-md-1 mr-2" value="0">
+                        <button type="submit" class="btn btn-primary">カートに追加</button>
+                    </form>
                 </div>
-            </div>
-            <div>
-                <a href="{{ url('/customer/products/add') }}" class="btn btn-primary">商品登録</a>
             </div>
         </div>
     </div>

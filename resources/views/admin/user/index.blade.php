@@ -10,35 +10,35 @@
             <table class="table">
                 <tr>
                     <th>ユーザID</th>
-                    <td>mijumaru</td>
+                    <td>{{ $user->user_id }}</td>
                 </tr>
                 <tr>
                     <th>ユーザ名</th>
-                    <td>ミジュマル</td>
+                    <td>{{ $user->username }}</td>
                 </tr>
                 <tr>
                     <th>性別</th>
-                    <td>男</td>
+                    <td>{{ $user->sex }}</td>
                 </tr>
                 <tr>
                     <th>住所</th>
-                    <td>hogehogeunko</td>
+                    <td>{{ $user->address }}</td>
                 </tr>
                 <tr>
                     <th>年齢</th>
-                    <td>6</td>
+                    <td>{{ $user->age }}歳</td>
                 </tr>
                 <tr>
                     <th>メールアドレス</th>
-                    <td>hoge&#64;hoge.com</td>
+                    <td>{{ $user->email }}</td>
                 </tr>
                 <tr>
                     <th>チャージ残高</th>
-                    <td>¥100</td>
+                    <td>¥{{ $user->charge }}</td>
                 </tr>
                 <tr>
                     <th>登録日</th>
-                    <td>YYYY/MM/DD</td>
+                    <td>{{ $user->created_at }}</td>
                 </tr>
             </table>
             <div>

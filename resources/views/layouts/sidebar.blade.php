@@ -25,12 +25,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/admin/orders/done') }}">入庫済み一覧</a>
                         </li>
-                        <li class="nav-item">出庫系</li>
+                        <li class="nav-item">納品系</li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin/shipments/yet') }}">未出庫一覧</a>
+                            <a class="nav-link" href="{{ url('/admin/delivery/yet') }}">未納品一覧</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin/shipments/done') }}">出庫済み一覧</a>
+                            <a class="nav-link" href="{{ url('/admin/delivery/done') }}">納品済み一覧</a>
                         </li>
                     @elseif (Auth::user()->type === 'seller')
                         <li class="nav-item">ユーザ系</li>
@@ -53,7 +53,13 @@
                             <a class="nav-link" href="{{ url('/customer/user') }}">ユーザ情報</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/customer/user/charge') }}">チャージ</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ url('/customer/products') }}">商品一覧</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/customer/products/cart') }}">カート</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/customer/products/history') }}">購入履歴</a>

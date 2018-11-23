@@ -9,11 +9,11 @@
             <ul class="navbar-nav ml-auto">
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Signin') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">サインイン</a>
                     </li>
                     <li class="nav-item">
                         @if (Route::has('register'))
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Signup') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">サインアップ</a>
                         @endif
                     </li>
                 @else
@@ -21,9 +21,7 @@
                         <a class="nav-link" href="#" role="button">{{ Auth::user()->username }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('signout-form').submit();">
-                            {{ __('Signout') }}
-                        </a>
+                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('signout-form').submit();">サインアウト</a>
 
                         <form id="signout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf

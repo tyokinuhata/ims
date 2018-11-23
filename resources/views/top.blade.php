@@ -62,9 +62,9 @@
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
-                    <a href="{{ route('login') }}">Signin</a>
+                    <a href="{{ route('login') }}">サインイン</a>
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}">Signup</a>
+                        <a href="{{ route('register') }}">サインアップ</a>
                     @endif
                 </div>
             @endif

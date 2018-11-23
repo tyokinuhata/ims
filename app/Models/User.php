@@ -26,4 +26,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getSexAttribute($value)
+    {
+        if ($value === 'man')   return '男';
+        if ($value === 'woman') return '女';
+        if ($value === 'other') return 'その他';
+    }
+
+    public function getCreatedAtAttribute($value)
+    {
+        $value = explode(' ', $value);
+        $value = str_replace('-', '/', $value[0]);
+        return $value;
+    }
 }

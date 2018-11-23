@@ -28,8 +28,8 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function change()
+    public function edit()
     {
-        return view('seller.user.change');
+        return view('seller.user.edit');
     }
 }

@@ -42,4 +42,14 @@ class ProductsController extends Controller
     {
         return view('customer.products.history');
     }
+
+    /**
+     * カート
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function cart()
+    {
+        return view('customer.products.cart');
+    }
 }

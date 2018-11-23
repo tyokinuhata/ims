@@ -48,8 +48,11 @@
                     <input type="email" id="email" name="email" class="form-control d-inline col-md-7" required>
                 </div>
             </form>
+            <div class="mb-2">
+                <button type="submit" class="btn btn-success">保存</button>
+            </div>
             <div>
-                <button class="btn btn-success">保存</button>
+                <button type="button" class="btn btn-danger">退会</button>
             </div>
         </div>
         <div>

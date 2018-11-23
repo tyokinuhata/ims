@@ -17,7 +17,7 @@ class CreateUsersSeeder extends Seeder
         // 管理者
         User::create([
             'user_id' => 'admin',
-            'username' => 'admin',
+            'username' => '管理者',
             'sex' => 'man',
             'address' => 'hogehogeunko',
             'age' => 6,
@@ -27,10 +27,10 @@ class CreateUsersSeeder extends Seeder
             'type' => 'admin'
         ]);
 
-        // 企業
+        // 販売者
         User::create([
             'user_id' => 'seller',
-            'username' => 'seller',
+            'username' => '販売者',
             'sex' => 'man',
             'address' => 'hogehogeunko',
             'age' => 6,
@@ -40,10 +40,10 @@ class CreateUsersSeeder extends Seeder
             'type' => 'seller'
         ]);
 
-        // 顧客
+        // 購入者
         User::create([
             'user_id' => 'customer',
-            'username' => 'customer',
+            'username' => '購入者',
             'sex' => 'man',
             'address' => 'hogehogeunko',
             'age' => 6,

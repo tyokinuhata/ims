@@ -24,7 +24,27 @@ class ProductsController extends Controller
     }
 
     /**
-     * 商品詳細
+     * 商品登録
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function add()
+    {
+        return view('seller.products.add');
+    }
+
+    /**
+     * 商品編集
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit()
+    {
+        return view('seller.products.edit');
+    }
+
+    /**
+     * 売上詳細
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */

@@ -28,8 +28,18 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function change()
+    public function edit()
     {
-        return view('customer.user.change');
+        return view('customer.user.edit');
+    }
+
+    /**
+     * チャージ
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function charge()
+    {
+        return view('customer.user.charge');
     }
 }

@@ -63,10 +63,10 @@ class RegisterController extends Controller
             'user_id' => [ 'required', 'string', 'min:1', 'max:13', 'regex:/^[a-zA-Z0-9_]+$/', 'unique:users', ],
             'username' => [ 'required', 'string', 'min:1', 'max:20', ],
             'password' => [ 'required', 'string', 'min:6', 'confirmed', ],
-            'email' => [ 'required', 'string', 'email', 'max:255', ],
+            'email' => [ 'required', 'string', 'email', 'min:1', 'max:255', ],
             'address' => [ 'required', 'string', 'min:1', 'max:50', ],
             'sex' => [ 'required', 'in:man,woman,other', ],
-            'age' => [ 'required', 'digits_between:0,150', 'max:255' ],
+            'age' => [ 'required', 'digits_between:0,150', 'max:3' ],
             'type' => [ 'required', 'in:seller,customer', ],
         ]);
     }
