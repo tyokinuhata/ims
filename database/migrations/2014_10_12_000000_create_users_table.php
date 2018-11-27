@@ -1,13 +1,14 @@
 <?php
 
-/**
- * 会員テーブル
- */
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * 会員テーブル
+ *
+ * Class CreateUsersTable
+ */
 class CreateUsersTable extends Migration
 {
     /**
@@ -30,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('type')->comment('ユーザ種別');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

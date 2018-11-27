@@ -29,15 +29,11 @@ class LoginController extends Controller
     protected function redirectTo()
     {
         $type = Auth::user()->type;
-        if ($type === 'admin') {
-            return '/admin/products';
-        } else if ($type === 'seller') {
-            return '/seller/products';
-        } else if ($type === 'customer') {
-            return '/customer/products';
-        } else {
-            return '/';
-        }
+        if ($type === 'admin')          return '/admin/products';
+        else if ($type === 'employee')  return '/admin/products';
+        else if ($type === 'seller')    return '/seller/products';
+        else if ($type === 'customer')  return '/customer/products';
+        else                            return '/';
     }
 
     /**

@@ -23,5 +23,8 @@ $ php artisan db:seed
 |Type|User ID|Password|
 |:--|:--|:--|
 |admin|admin|password|
+|employee|employee|password|
 |seller|seller|password|
 |customer|customer|password|
+
+* Employee has some of the authority of Admin.

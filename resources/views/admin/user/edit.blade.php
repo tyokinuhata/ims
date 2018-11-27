@@ -4,20 +4,17 @@
     <div class="container">
         <h1 class="h1 mb-3">ユーザ情報編集</h1>
         <div class="mb-2">
-            <div class="mb-2">
-                <img src="http://placehold.it/200x200&text=icon" alt="">
-            </div>
-            <form method="POST" action="{{ url('/admin/user/update') }}">
+            <form method="POST" action="{{ url('/admin/user/edit') }}">
                 @csrf
                 <div>
                     <div class="row mb-2">
-                        <label for="after_user_id" class="col-md-2">ユーザID</label>
-                        <input type="text" id="after_user_id" name="after_user_id" class="form-control d-inline col-md-7" value="{{ $user->user_id }}" maxlength="13" required autofocus>
+                        <label for="new_user_id" class="col-md-2">ユーザID</label>
+                        <input type="text" id="new_user_id" name="new_user_id" class="form-control d-inline col-md-7" value="{{ $user->user_id }}" maxlength="13" required autofocus>
                     </div>
-                    @if ($errors->has('user_id'))
+                    @if ($errors->has('new_user_id'))
                         <div class="row mb-2">
                             <div class="col-md-2"></div>
-                            <div class="text-danger">{{ $errors->first('user_id') }}</div>
+                            <div class="text-danger">{{ $errors->first('new_user_id') }}</div>
                         </div>
                     @endif
                 </div>
@@ -40,15 +37,15 @@
                         <label class="col-md-2">性別</label>
                         <div class="col-md-7">
                             <div class="d-inline">
-                                <input type="radio" name="sex" id="man" value="man" checked required>
+                                <input type="radio" name="sex" id="man" value="man" required checked="{{ $user->sex === '男' ? 'checked' : '' }}">
                                 <label class="form-check-label" for="man">男</label>
                             </div>
                             <div class="d-inline">
-                                <input type="radio" name="sex" id="woman" value="woman" required>
+                                <input type="radio" name="sex" id="woman" value="woman" required checked="{{ $user->sex === '女' ? 'checked' : '' }}">
                                 <label class="form-check-label" for="woman">女</label>
                             </div>
                             <div class="d-inline">
-                                <input type="radio" name="sex" id="other" value="other" required>
+                                <input type="radio" name="sex" id="other" value="other" required checked="{{ $user->sex === 'その他' ? 'checked' : '' }}">
                                 <label class="form-check-label" for="other">その他</label>
                             </div>
                         </div>

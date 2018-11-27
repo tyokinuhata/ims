@@ -4,6 +4,11 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * 売上詳細テーブル
+ *
+ * Class CreateSaleDetailsTable
+ */
 class CreateSaleDetailsTable extends Migration
 {
     /**

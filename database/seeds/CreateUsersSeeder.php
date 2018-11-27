@@ -27,6 +27,19 @@ class CreateUsersSeeder extends Seeder
             'type' => 'admin'
         ]);
 
+        // 従業員
+        User::create([
+            'user_id' => 'employee',
+            'username' => '従業員',
+            'sex' => 'man',
+            'address' => 'hogehogeunko',
+            'age' => 6,
+            'email' => 'employee@employee.com',
+            'password' => Hash::make('password'),
+            'charge' => 0,
+            'type' => 'employee'
+        ]);
+
         // 販売者
         User::create([
             'user_id' => 'seller',

@@ -5,7 +5,13 @@ namespace App\Http\Middleware;
 use Closure;
 use Auth;
 
-class UserTypeFiliter
+/**
+ * 管理者のみ閲覧可能な画面に従業員がアクセスすることを防ぐミドルウェア
+ *
+ * Class AccessEmployeeToAdminGuards
+ * @package App\Http\Middleware
+ */
+class AccessEmployeeToAdminGuards
 {
     /**
      * Handle an incoming request.
@@ -16,13 +22,8 @@ class UserTypeFiliter
      */
     public function handle($request, Closure $next)
     {
-
-        $url = explode('/', url()->current())[3];
         $type = Auth::user()->type;
-
-        if ($type !== $url) {
-            return redirect("/403");
-        }
+        if ($type === 'employee')   return redirect('/admin/products');
 
         return $next($request);
     }

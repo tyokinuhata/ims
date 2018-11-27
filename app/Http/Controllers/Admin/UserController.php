@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use App\Http\Requests\Admin\User\UpdateRequest;
+use App\Http\Requests\Admin\User\EditRequest;
+use App\Http\Requests\Admin\User\PasswordRequest;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Auth;
 use Hash;
 
 /**
- * ユーザ系コントローラ
+ * ユーザ情報系コントローラ
  *
  * Class UserController
  * @package App\Http\Controllers\Admin
@@ -18,7 +18,7 @@ use Hash;
 class UserController extends Controller
 {
     /**
-     * ユーザ情報
+     * ユーザ情報画面
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -32,7 +32,7 @@ class UserController extends Controller
     }
 
     /**
-     * ユーザ情報編集
+     * ユーザ情報編集画面
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -46,15 +46,15 @@ class UserController extends Controller
     }
 
     /**
-     * ユーザ情報編集
+     * ユーザ情報編集処理
      *
-     * @param UpdateRequest $request
+     * @param EditRequest $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(UpdateRequest $request)
+    public function postEdit(EditRequest $request)
     {
         User::where('user_id', $request->user_id)->update([
-            'user_id' => $request->after_user_id,
+            'user_id' => $request->new_user_id,
             'username' => $request->username,
             'sex' => $request->sex,
             'address' => $request->address,
@@ -66,32 +66,31 @@ class UserController extends Controller
     }
 
     /**
-     * ユーザ操作
+     * パスワード変更画面
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function operate()
+    public function password()
     {
-        return view('admin.user.operate');
+        $user = User::where('user_id', Auth::user()->user_id)->first();
+
+        return view('admin.user.password', [
+            'user' => $user,
+        ]);
     }
 
     /**
-     * ユーザ操作(編集)
+     * パスワード変更処理
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param PasswordRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function operateEdit()
+    public function postPassword(PasswordRequest $request)
     {
-        return view('admin.user.operateEdit');
-    }
+        User::where('user_id', $request->user_id)->update([
+            'password' => Hash::make($request->new_password),
+        ]);
 
-    /**
-     * ユーザ操作(購入履歴)
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function operateHistory()
-    {
-        return view('admin.user.operateHistory');
+        return redirect('/admin/user/password');
     }
 }

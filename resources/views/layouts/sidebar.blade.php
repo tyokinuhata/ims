@@ -3,7 +3,7 @@
         <nav class="col-md-2 d-none d-md-block sidebar mt-3 border-right">
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
-                    @if (Auth::user()->type === 'admin')
+                    @if ((Auth::user()->type === 'admin') || (Auth::user()->type === 'employee'))
                         <li class="nav-item">ユーザ系</li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/admin/user') }}">ユーザ情報</a>
