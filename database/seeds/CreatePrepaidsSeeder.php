@@ -3,6 +3,11 @@
 use Illuminate\Database\Seeder;
 use App\Models\Prepaid;
 
+/**
+ * プリペイドのシーダー
+ *
+ * Class CreatePrepaidsSeeder
+ */
 class CreatePrepaidsSeeder extends Seeder
 {
     /**

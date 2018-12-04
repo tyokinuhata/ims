@@ -3,6 +3,11 @@
 use Illuminate\Database\Seeder;
 use App\Models\User;
 
+/**
+ * ユーザのシーダー
+ *
+ * Class CreateUsersSeeder
+ */
 class CreateUsersSeeder extends Seeder
 {
     /**

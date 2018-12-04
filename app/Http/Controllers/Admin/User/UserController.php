@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\User;
 
-use App\Http\Requests\Admin\User\EditRequest;
-use App\Http\Requests\Admin\User\PasswordRequest;
+use App\Http\Requests\Admin\User\User\EditRequest;
+use App\Http\Requests\Admin\User\User\PasswordRequest;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Auth;
@@ -13,7 +13,7 @@ use Hash;
  * ユーザ情報系コントローラ
  *
  * Class UserController
- * @package App\Http\Controllers\Admin
+ * @package App\Http\Controllers\Admin\User
  */
 class UserController extends Controller
 {
@@ -26,7 +26,7 @@ class UserController extends Controller
     {
         $user = User::where('user_id', Auth::user()->user_id)->first();
 
-        return view('admin.user.index', [
+        return view('admin.user.user.index', [
             'user' => $user,
         ]);
     }
@@ -40,7 +40,7 @@ class UserController extends Controller
     {
         $user = User::where('user_id', Auth::user()->user_id)->first();
 
-        return view('admin.user.edit', [
+        return view('admin.user.user.edit', [
             'user' => $user,
         ]);
     }
@@ -74,7 +74,7 @@ class UserController extends Controller
     {
         $user = User::where('user_id', Auth::user()->user_id)->first();
 
-        return view('admin.user.password', [
+        return view('admin.user.user.password', [
             'user' => $user,
         ]);
     }

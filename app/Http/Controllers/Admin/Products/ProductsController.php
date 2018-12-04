@@ -1,16 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Products;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Http\Requests\Admin\Products\IndexRequest;
+use App\Http\Requests\Admin\Products\EditRequest;
+use App\Http\Requests\Admin\Products\AddRequest;
+use App\Models\ProductCategory;
+use Auth;
 
 /**
  * 商品系コントローラ
  *
  * Class ProductsController
- * @package App\Http\Controllers\Admin
+ * @package App\Http\Controllers\Admin\Products
  */
 class ProductsController extends Controller
 {
@@ -50,18 +54,7 @@ class ProductsController extends Controller
     }
 
     /**
-     * 商品編集
-     *
-     * @param $product_id
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function edit($product_id)
-    {
-        return view('admin.products.edit');
-    }
-
-    /**
-     * 商品詳細
+     * 商品詳細画面
      *
      * @param $product_id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -76,7 +69,42 @@ class ProductsController extends Controller
     }
 
     /**
-     * 売上詳細
+     * 商品編集画面
+     *
+     * @param $product_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit($product_id)
+    {
+        $product = Product::where('id', $product_id)->first();
+        $productCategories = ProductCategory::all();
+
+        return view('admin.products.edit', [
+            'product' => $product,
+            'productCategories' => $productCategories,
+        ]);
+    }
+
+    /**
+     * 商品編集処理
+     *
+     * @param EditRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function postEdit(EditRequest $request)
+    {
+        Product::where('id', $request->id)->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'product_category_id' => $request->category,
+        ]);
+
+        return redirect("/admin/products/edit/{$request->id}");
+    }
+
+    /**
+     * 売上詳細画面
      *
      * @param $product_id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -87,12 +115,35 @@ class ProductsController extends Controller
     }
 
     /**
-     * 商品登録
+     * 商品登録画面
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function add()
     {
-        return view('admin.products.add');
+        $productCategories = ProductCategory::all();
+
+        return view('admin.products.add', [
+            'productCategories' => $productCategories,
+        ]);
+    }
+
+    /**
+     * 商品登録処理
+     *
+     * @param AddRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function postAdd(AddRequest $request)
+    {
+        Product::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'user_id' => Auth::user()->user_id,
+            'product_category_id' => $request->category,
+        ]);
+
+        return redirect('/admin/products/add');
     }
 }

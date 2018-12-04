@@ -4,7 +4,6 @@
     <div class="container">
         <h1 class="h1 mb-3">購入履歴</h1>
         <div>
-            <p class="font-weight-bold">ユーザID: mijumaru</p>
             <table class="table table-striped">
                 <tr>
                     <th>商品名</th>

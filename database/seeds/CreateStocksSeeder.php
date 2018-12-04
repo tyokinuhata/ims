@@ -4,6 +4,11 @@ use Illuminate\Database\Seeder;
 use App\Models\Stock;
 use App\Models\Product;
 
+/**
+ * 在庫のシーダー
+ *
+ * Class CreateStocksSeeder
+ */
 class CreateStocksSeeder extends Seeder
 {
     /**

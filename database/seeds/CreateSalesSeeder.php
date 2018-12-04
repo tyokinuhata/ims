@@ -2,6 +2,11 @@
 
 use Illuminate\Database\Seeder;
 
+/**
+ * 売上のシーダー
+ *
+ * Class CreateSalesSeeder
+ */
 class CreateSalesSeeder extends Seeder
 {
     /**

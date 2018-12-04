@@ -38,12 +38,12 @@
                         <th>メールアドレス</th>
                         <td>{{ $user->email }}</td>
                     </tr>
-                    @if ($user->type === 'customer')
+                    @customer($user->type)
                         <tr>
                             <th>チャージ残高</th>
                             <td>¥{{ $user->charge }}</td>
                         </tr>
-                    @endif
+                    @endcustomer
                     <tr>
                         <th>登録日</th>
                         <td>{{ $user->created_at }}</td>
@@ -61,7 +61,7 @@
                 </table>
                 <div class="mb-2">
                     <a href="{{ url("/admin/user/operate/history/{$user->user_id}") }}" class="mr-2">購入履歴</a>
-                    @admin
+                    @admin(Auth::user()->type)
                         <a href="{{ url("/admin/user/operate/edit/{$user->user_id}") }}" class="mr-2">ユーザ情報編集</a>
                         <a href="{{ url("/admin/user/operate/password/{$user->user_id}") }}" class="mr-2">パスワード変更</a>
                     @endadmin
@@ -71,7 +71,7 @@
             @endisset
         </div>
         <div>
-            @admin
+            @admin(Auth::user()->type)
                 <a href="{{ url('/admin/user/operate/add') }}">ユーザ追加</a>
             @endadmin
         </div>

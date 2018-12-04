@@ -4,6 +4,12 @@ namespace App\Http\Requests\Admin\Products;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * 商品系 > 商品検索
+ *
+ * Class IndexRequest
+ * @package App\Http\Requests\Admin\Products
+ */
 class IndexRequest extends FormRequest
 {
     /**
@@ -28,11 +34,14 @@ class IndexRequest extends FormRequest
         ];
     }
 
+    /**
+     * @return array
+     */
     public function messages()
     {
         return [
             'required' => '必須項目です。',
-            'string' => '文字列を入力してください.',
+            'string' => '文字列を入力してください。',
             'min' => '1文字以上を入力してください。',
             'max' => '500文字以下で入力してください。',
         ];

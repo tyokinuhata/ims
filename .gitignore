@@ -13,3 +13,5 @@ yarn-error.log
 .env
 .phpunit.result.cache
 .DS_Store
+/storage/app/public/images/products/*.png
+!/storage/app/public/images/products/no_image.png

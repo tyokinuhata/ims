@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\User;
 
-use App\Http\Requests\Admin\Operate\IndexRequest;
-use App\Http\Requests\Admin\Operate\EditRequest;
-use App\Http\Requests\Admin\Operate\PasswordRequest;
-use App\Http\Requests\Admin\Operate\LockRequest;
-use App\Http\Requests\Admin\Operate\UnlockRequest;
-use App\Http\Requests\Admin\Operate\AddRequest;
+use App\Http\Requests\Admin\Operate\User\IndexRequest;
+use App\Http\Requests\Admin\Operate\User\EditRequest;
+use App\Http\Requests\Admin\Operate\User\PasswordRequest;
+use App\Http\Requests\Admin\Operate\User\LockRequest;
+use App\Http\Requests\Admin\Operate\User\UnlockRequest;
+use App\Http\Requests\Admin\Operate\User\AddRequest;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Hash;
@@ -16,7 +16,7 @@ use Hash;
  * ユーザ操作系コントローラ
  *
  * Class OperateController
- * @package App\Http\Controllers\Admin
+ * @package App\Http\Controllers\Admin\User
  */
 class OperateController extends Controller
 {

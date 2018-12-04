@@ -5,72 +5,80 @@
 // ユーザ系
 Route::prefix('user')->group(function () {
     // ユーザ情報
-    Route::get('/', 'Admin\UserController@index');
+    Route::get('/', 'Admin\User\UserController@index');
 
     // ユーザ情報編集
-    Route::get('edit', 'Admin\UserController@edit');
-    Route::post('edit', 'Admin\UserController@postEdit');
+    Route::get('edit', 'Admin\User\UserController@edit');
+    Route::post('edit', 'Admin\User\UserController@postEdit');
 
     // パスワード変更
-    Route::get('password', 'Admin\UserController@password');
-    Route::post('password', 'Admin\UserController@postPassword');
+    Route::get('password', 'Admin\User\UserController@password');
+    Route::post('password', 'Admin\User\UserController@postPassword');
 
     // ユーザ操作系
     Route::prefix('operate')->group(function () {
         // ユーザ操作
-        Route::get('/', 'Admin\OperateController@index');
+        Route::get('/', 'Admin\User\OperateController@index');
 
         // ユーザ操作(購入履歴)
-        Route::get('history/{user_id}', 'Admin\OperateController@history');
+        Route::get('history/{user_id}', 'Admin\User\OperateController@history');
 
         // ユーザ操作(ユーザ情報編集)
-        Route::get('edit/{user_id}', 'Admin\OperateController@edit')->middleware([ 'guards.employees' ]);
-        Route::post('edit/{user_id}', 'Admin\OperateController@postEdit')->middleware([ 'guards.employees' ]);
+        Route::get('edit/{user_id}', 'Admin\User\OperateController@edit')->middleware([ 'guards.employees' ]);
+        Route::post('edit/{user_id}', 'Admin\User\OperateController@postEdit')->middleware([ 'guards.employees' ]);
 
         // ユーザ操作(パスワード変更)
-        Route::get('password/{user_id}', 'Admin\OperateController@password')->middleware([ 'guards.employees' ]);
-        Route::post('password/{user_id}', 'Admin\OperateController@postPassword')->middleware([ 'guards.employees' ]);
+        Route::get('password/{user_id}', 'Admin\User\OperateController@password')->middleware([ 'guards.employees' ]);
+        Route::post('password/{user_id}', 'Admin\User\OperateController@postPassword')->middleware([ 'guards.employees' ]);
 
         // ユーザ操作(凍結)
-        Route::post('lock', 'Admin\OperateController@lock')->middleware([ 'guards.employees' ]);
+        Route::post('lock', 'Admin\User\OperateController@lock')->middleware([ 'guards.employees' ]);
 
         // ユーザ操作(凍結解除)
-        Route::post('unlock', 'Admin\OperateController@unlock')->middleware([ 'guards.employees' ]);
+        Route::post('unlock', 'Admin\User\OperateController@unlock')->middleware([ 'guards.employees' ]);
 
         // ユーザ操作(ユーザ追加)
-        Route::get('add', 'Admin\OperateController@add')->middleware([ 'guards.employees' ]);
-        Route::post('add', 'Admin\OperateController@postAdd')->middleware([ 'guards.employees' ]);
+        Route::get('add', 'Admin\User\OperateController@add')->middleware([ 'guards.employees' ]);
+        Route::post('add', 'Admin\User\OperateController@postAdd')->middleware([ 'guards.employees' ]);
     });
 });
 
 // 商品系
 Route::prefix('products')->group(function () {
     // 商品一覧
-    Route::get('/', 'Admin\ProductsController@index');
+    Route::get('/', 'Admin\Products\ProductsController@index');
 
     // 商品詳細
-    Route::get('detail/{product_id}', 'Admin\ProductsController@detail');
+    Route::get('detail/{product_id}', 'Admin\Products\ProductsController@detail');
 
     // 商品編集
-    Route::get('edit/{product_id}', 'Admin\ProductsController@edit');
+    Route::get('edit/{product_id}', 'Admin\Products\ProductsController@edit')->middleware([ 'guards.employees' ]);
+    Route::post('edit/{product_id}', 'Admin\Products\ProductsController@postEdit')->middleware([ 'guards.employees' ]);
 
     // 売上詳細
-    Route::get('sales/{product_id}', 'Admin\ProductsController@sales');
+    Route::get('sales/{product_id}', 'Admin\Products\ProductsController@sales');
 
     // 商品登録
-    Route::get('add', 'Admin\ProductsController@add');
+    Route::get('add', 'Admin\Products\ProductsController@add')->middleware([ 'guards.employees' ]);
+    Route::post('add', 'Admin\Products\ProductsController@postAdd')->middleware([ 'guards.employees' ]);
 });
 
 // 発注・入庫系
 Route::prefix('orders')->group(function () {
-    // 未発注一覧
-    Route::get('yet', 'Admin\OrdersController@yet');
+    // ダンボール送付待ち一覧
+    Route::get('cardboard', 'Admin\Orders\CardboardController@index');
 
-    // 入庫待ち一覧
-    Route::get('wait', 'Admin\OrdersController@wait');
+    // 承認待ち一覧
+    Route::get('unapproved', 'Admin\Orders\UnapprovedController@index');
 
-    // 入庫済み一覧
-    Route::get('done', 'Admin\OrdersController@done');
+    // コンテナ待ち一覧
+    Route::get('container', 'Admin\Orders\ContainerController@index');
+
+    // 返送待ち一覧
+    Route::get('return', 'Admin\Orders\ReturnController@index');
+
+    // 入庫履歴
+    Route::get('history', 'Admin\Orders\HistoryController@index');
 });
 
 // 納品系

@@ -1,9 +1,15 @@
 <?php
 
-namespace App\Http\Requests\Admin\Operate;
+namespace App\Http\Requests\Admin\Operate\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * ユーザ操作系 > ユーザ情報編集
+ *
+ * Class EditRequest
+ * @package App\Http\Requests\Admin\Operate
+ */
 class EditRequest extends FormRequest
 {
     /**
@@ -30,25 +36,25 @@ class EditRequest extends FormRequest
             'email' => [ 'required', 'string', 'email', 'min:1', 'max:255', ],
             'address' => [ 'required', 'string', 'min:1', 'max:50', 'regex:/^[a-zA-Z0-9ａ-ｚA-Zぁ-んァ-ヶー一-龠]+$/', ],
             'sex' => [ 'required', 'in:man,woman,other', ],
-            'age' => [ 'required', 'digits_between:0,150', 'max:3' ],
-            'password' => [ 'required', 'string', 'min:6', 'regex:/^[a-zA-Z0-9_]+$/', 'password_check' ],
+            'age' => [ 'required', 'digits_between:0,150', 'min:1', 'max:3', ],
+            'password' => [ 'required', 'string', 'min:6', 'regex:/^[a-zA-Z0-9_]+$/', 'password_check', ],
         ];
     }
 
+    /**
+     * @return array
+     */
     public function messages()
     {
         return [
             'required' => '必須項目です。',
-            'string' => '文字列を入力してください.',
+            'string' => '文字列を入力してください。',
             'email' => 'メールアドレスの形式で入力してください。',
-            'new_user_id.min' => '1文字以上を入力してください。',
+            'min' => '1文字以上を入力してください。',
             'new_user_id.max' => '13文字以下で入力してください。',
             'new_user_id.regex' => 'ユーザIDは英数字でに有力してください。',
-            'username.min' => '1文字以上を入力してください。',
             'username.max' => '20文字以下で入力してください。',
-            'email.min' => '1文字以上を入力してください。',
             'email.max' => '255文字以下で入力してください。',
-            'address.min' => '1文字以上を入力してください。',
             'address.max' => '50文字以下で入力してください。',
             'sex.in' => '予期しない性別です。',
             'age.digits_between' => '0 ~ 150の間で入力してください。',

@@ -1,9 +1,15 @@
 <?php
 
-namespace App\Http\Requests\Admin\User;
+namespace App\Http\Requests\Admin\User\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * ユーザ系 > ユーザ情報編集
+ *
+ * Class EditRequest
+ * @package App\Http\Requests\Admin\User
+ */
 class EditRequest extends FormRequest
 {
     /**
@@ -30,8 +36,8 @@ class EditRequest extends FormRequest
             'email' => [ 'required', 'string', 'email', 'min:1', 'max:255', ],
             'address' => [ 'required', 'string', 'min:1', 'max:50', 'regex:/^[a-zA-Z0-9ａ-ｚA-Zぁ-んァ-ヶー一-龠]+$/', ],
             'sex' => [ 'required', 'in:man,woman,other', ],
-            'age' => [ 'required', 'digits_between:0,150', 'max:3' ],
-            'password' => [ 'required', 'string', 'min:6', 'regex:/^[a-zA-Z0-9_]+$/', 'password_check' ],
+            'age' => [ 'required', 'digits_between:0,150', 'min:1', 'max:3', ],
+            'password' => [ 'required', 'string', 'min:6', 'regex:/^[a-zA-Z0-9_]+$/', 'password_check', ],
         ];
     }
 
@@ -53,8 +59,8 @@ class EditRequest extends FormRequest
             'sex.in' => '予期しない性別です。',
             'age.digits_between' => '0 ~ 150の間で入力してください。',
             'age.max' => '3桁以下で入力してください。',
-            'password.min' => '6文字以下で入力してください。',
-            'password.regex' => 'ユーザIDは英数字でに有力してください。',
+            'password.min' => '6文字以上で入力してください。',
+            'password.regex' => 'ユーザIDは英数字でに入力してください。',
         ];
     }
 }

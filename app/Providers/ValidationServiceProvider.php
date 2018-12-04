@@ -5,6 +5,12 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Http\Validators\ExtensionValidator;
 
+/**
+ * バリデーション拡張のサービスプロバイダ
+ *
+ * Class ValidationServiceProvider
+ * @package App\Providers
+ */
 class ValidationServiceProvider extends ServiceProvider
 {
     /**

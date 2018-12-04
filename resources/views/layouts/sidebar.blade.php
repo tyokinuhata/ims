@@ -17,13 +17,19 @@
                         </li>
                         <li class="nav-item">発注・入庫系</li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin/orders/yet') }}">未発注一覧</a>
+                            <a class="nav-link" href="{{ url('/admin/orders/cardboard') }}">ダンボール送付待ち一覧</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin/orders/wait') }}">入庫待ち一覧</a>
+                            <a class="nav-link" href="{{ url('/admin/orders/unapproved') }}">承認待ち一覧</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin/orders/done') }}">入庫済み一覧</a>
+                            <a class="nav-link" href="{{ url('/admin/orders/container') }}">コンテナ待ち一覧</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/admin/orders/return') }}">返送待ち一覧</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/admin/orders/history') }}">入庫履歴</a>
                         </li>
                         <li class="nav-item">納品系</li>
                         <li class="nav-item">
@@ -32,7 +38,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/admin/delivery/done') }}">納品済み一覧</a>
                         </li>
-                    @elseif (Auth::user()->type === 'seller')
+                    @endif
+                    @seller(Auth::user()->type)
                         <li class="nav-item">ユーザ系</li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/seller/user') }}">ユーザ情報</a>
@@ -48,7 +55,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/seller/delivery/done') }}">納品済み一覧</a>
                         </li>
-                    @elseif (Auth::user()->type === 'customer')
+                    @endseller
+                    @customer(Auth::user()->type))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/customer/user') }}">ユーザ情報</a>
                         </li>
@@ -64,7 +72,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/customer/products/history') }}">購入履歴</a>
                         </li>
-                    @endif
+                    @endcustomer
                 </ul>
             </div>
         </nav>

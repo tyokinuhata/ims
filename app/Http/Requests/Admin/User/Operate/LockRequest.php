@@ -1,10 +1,16 @@
 <?php
 
-namespace App\Http\Requests\Admin\Operate;
+namespace App\Http\Requests\Admin\Operate\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UnlockRequest extends FormRequest
+/**
+ * ユーザ操作系 > 凍結
+ *
+ * Class LockRequest
+ * @package App\Http\Requests\Admin\Operate
+ */
+class LockRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

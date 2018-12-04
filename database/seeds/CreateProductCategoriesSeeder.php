@@ -3,6 +3,11 @@
 use Illuminate\Database\Seeder;
 use App\Models\ProductCategory;
 
+/**
+ * 商品カテゴリのシーダー
+ *
+ * Class CreateProductCategoriesSeeder
+ */
 class CreateProductCategoriesSeeder extends Seeder
 {
     /**

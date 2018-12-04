@@ -2,6 +2,11 @@
 
 use Illuminate\Database\Seeder;
 
+/**
+ * 発注のシーダー
+ *
+ * Class CreateReceivingsSeeder
+ */
 class CreateReceivingsSeeder extends Seeder
 {
     /**
