@@ -32,7 +32,7 @@
             </table>
         </div>
         <div>
-            <a href="{{ url('/admin/user/operate') }}">< 戻る</a>
+            <a href="javascript:history.go(-1)">< 戻る</a>
         </div>
     </div>
 @endsection

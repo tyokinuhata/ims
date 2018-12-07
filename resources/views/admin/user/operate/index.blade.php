@@ -5,7 +5,7 @@
         <h1 class="h1 mb-3">ユーザ操作</h1>
         <div>
             <form method="GET" action="{{ url('/admin/user/operate') }}">
-                <input type="text" placeholder="ユーザID" class="form-control col-md-8 d-inline mb-4 mr-2" name="user_id" autofocus required>
+                <input type="text" placeholder="ユーザID" class="form-control col-md-8 d-inline mb-4 mr-2" name="user_id"  autofocus required>
                 <button type="submit" class="btn btn-primary">検索</button>
             </form>
             @isset ($user)
