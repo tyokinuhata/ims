@@ -43,11 +43,16 @@ class OperateController extends Controller
     /**
      * 購入履歴画面
      *
+     * @param $user_id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function history()
+    public function history($user_id)
     {
-        return view('admin.user.operate.history');
+        $user = User::where('user_id', $user_id)->withTrashed()->first();
+
+        return view('admin.user.operate.history', [
+            'user' => $user
+        ]);
     }
 
     /**
