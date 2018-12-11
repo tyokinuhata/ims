@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin\Orders;
 
-use Illuminate\Http\Request;
+use App\Models\CardboardSendingWait;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Orders\SendRequest;
 
 /**
  * ダンボール送付待ち系コントローラ
@@ -20,6 +21,19 @@ class CardboardController extends Controller
      */
     public function index()
     {
-        return view('admin.orders.cardboard');
+        $cardboards = CardboardSendingWait::where('status', 'wait')->get();
+
+        return view('admin.orders.cardboard', [
+            'cardboards' => $cardboards,
+        ]);
+    }
+
+    public function send(SendRequest $request)
+    {
+        CardboardSendingWait::where('id', $request->cardboard_id)->update([
+            'status' => 'done',
+        ]);
+
+        return redirect('/admin/orders/cardboard');
     }
 }

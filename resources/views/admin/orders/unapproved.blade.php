@@ -13,6 +13,7 @@
                     <th>個数</th>
                     <th>安全在庫数</th>
                     <th>&nbsp;</th>
+                    <th>&nbsp;</th>
                 </tr>
                 <tr>
                     <td>ミジュマル</td>
@@ -23,6 +24,9 @@
                     <td>2個</td>
                     <td>
                         <button type="submit" class="btn btn-danger">承認</button>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-danger">非承認</button>
                     </td>
                 </tr>
                 <tr>
@@ -35,6 +39,9 @@
                     <td>
                         <button type="submit" class="btn btn-danger">承認</button>
                     </td>
+                    <td>
+                        <button type="submit" class="btn btn-danger">非承認</button>
+                    </td>
                 </tr>
                 <tr>
                     <td>ミジュマル</td>
@@ -45,6 +52,9 @@
                     <td>2個</td>
                     <td>
                         <button type="submit" class="btn btn-danger">承認</button>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-danger">非承認</button>
                     </td>
                 </tr>
             </table>

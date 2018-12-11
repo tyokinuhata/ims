@@ -67,6 +67,7 @@ Route::prefix('products')->group(function () {
 Route::prefix('orders')->group(function () {
     // ダンボール送付待ち一覧
     Route::get('cardboard', 'Admin\Orders\CardboardController@index');
+    Route::post('cardboard', 'Admin\Orders\CardboardController@send');
 
     // 承認待ち一覧
     Route::get('unapproved', 'Admin\Orders\UnapprovedController@index');

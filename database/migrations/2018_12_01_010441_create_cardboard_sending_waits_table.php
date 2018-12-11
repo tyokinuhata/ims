@@ -20,8 +20,9 @@ class CreateCardboardSendingWaitsTable extends Migration
     {
         Schema::create('cardboard_sending_waits', function (Blueprint $table) {
             $table->increments('id')->comment('ダンボール送付待ちID');
-            $table->unsignedInteger('cardboard_id')->comment('ダンボールID');
             $table->unsignedInteger('number')->comment('個数');
+            $table->string('status')->comment('ステータス');
+            $table->unsignedInteger('cardboard_id')->comment('ダンボールID');
             $table->string('user_id')->comment('ユーザID');
             $table->timestamps();
 

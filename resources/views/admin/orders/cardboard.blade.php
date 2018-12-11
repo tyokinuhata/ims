@@ -12,33 +12,21 @@
                     <th>箱数</th>
                     <th>&nbsp;</th>
                 </tr>
-                <tr>
-                    <td>ミジュマル</td>
-                    <td>mijumaru</td>
-                    <td>L</td>
-                    <td>2個</td>
-                    <td>
-                        <button type="submit" class="btn btn-danger">送付</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>ミジュマル</td>
-                    <td>mijumaru</td>
-                    <td>L</td>
-                    <td>2個</td>
-                    <td>
-                        <button type="submit" class="btn btn-danger">送付</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>ミジュマル</td>
-                    <td>mijumaru</td>
-                    <td>L</td>
-                    <td>2個</td>
-                    <td>
-                        <button type="submit" class="btn btn-danger">送付</button>
-                    </td>
-                </tr>
+                @foreach ($cardboards as $cardboard)
+                    <tr>
+                        <td>{{ $cardboard->user->username }}</td>
+                        <td>{{ $cardboard->user->user_id }}</td>
+                        <td>{{ $cardboard->cardboard->size }}</td>
+                        <td>{{ $cardboard->number }}</td>
+                        <td>
+                            <form method="POST" action="{{ url('/admin/orders/cardboard') }}">
+                                @csrf
+                                <input type="hidden" name="cardboard_id" value="{{ $cardboard->id }}">
+                                <button type="submit" class="btn btn-danger">送付</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
             </table>
         </div>
     </div>

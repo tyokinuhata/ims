@@ -22,18 +22,21 @@ class CreateCardboardSendingWaitsSeeder extends Seeder
         CardboardSendingWait::create([
             'cardboard_id' => 1,
             'number' => 1,
+            'status' => 'wait',
             'user_id' => 3,
         ]);
 
         CardboardSendingWait::create([
             'cardboard_id' => 2,
             'number' => 2,
+            'status' => 'wait',
             'user_id' => 3,
         ]);
 
         CardboardSendingWait::create([
             'cardboard_id' => 3,
             'number' => 3,
+            'status' => 'done',
             'user_id' => 3,
         ]);
     }
