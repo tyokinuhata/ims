@@ -12,6 +12,9 @@ Route::prefix('user')->group(function () {
 
     // チャージ
     Route::get('charge', 'Customer\UserController@charge');
+
+    // パスワード変更
+    Route::get('password', 'Customer\UserController@password');
 });
 
 // 商品系

@@ -4,9 +4,6 @@
     <div class="container">
         <h1 class="h1 mb-3">ユーザ情報</h1>
         <div>
-            <div class="mb-2">
-                <img src="http://placehold.it/200x200&text=icon" alt="">
-            </div>
             <table class="table">
                 <tr>
                     <th>ユーザID</th>
@@ -15,6 +12,10 @@
                 <tr>
                     <th>ユーザ名</th>
                     <td>ミジュマル</td>
+                </tr>
+                <tr>
+                    <th>アカウント種別</th>
+                    <td>admin</td>
                 </tr>
                 <tr>
                     <th>性別</th>
@@ -33,16 +34,13 @@
                     <td>hoge&#64;hoge.com</td>
                 </tr>
                 <tr>
-                    <th>チャージ残高</th>
-                    <td>¥100</td>
-                </tr>
-                <tr>
                     <th>登録日</th>
                     <td>YYYY/MM/DD</td>
                 </tr>
             </table>
             <div>
-                <a href="{{ url('/customer/user/edit') }}">ユーザ情報編集</a>
+                <a href="{{ url('/customer/user/edit')  }}" class="mr-2">ユーザ情報編集</a>
+                <a href="{{ url('/customer/user/password') }}">パスワード変更</a>
             </div>
         </div>
     </div>
