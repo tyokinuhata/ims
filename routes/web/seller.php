@@ -9,6 +9,9 @@ Route::prefix('user')->group(function () {
 
     // ユーザ情報変更
     Route::get('edit', 'Seller\UserController@edit');
+
+    // パスワード変更
+    Route::get('password', 'Seller\UserController@password');
 });
 
 // 商品系

@@ -1,18 +1,13 @@
-
 @extends('layouts.base')
-
 @section('content')
     <div class="container">
         <h1 class="h1 mb-3">ユーザ情報編集</h1>
         <div class="mb-2">
-            <div class="mb-2">
-                <img src="http://placehold.it/200x200&text=icon" alt="">
-            </div>
-            <form method="POST" action="">
+            <form method="POST" action="{{ url('/seller/user/edit') }}">
                 @csrf
                 <div class="row mb-2">
-                    <label for="user_id" class="col-md-2">ユーザID</label>
-                    <input type="text" id="user_id" name="user_id" class="form-control d-inline col-md-7" required>
+                    <label for="new_user_id" class="col-md-2">ユーザID</label>
+                    <input type="text" id="new_user_id" name="new_user_id" class="form-control d-inline col-md-7" required>
                 </div>
                 <div class="row mb-2">
                     <label for="username" class="col-md-2">ユーザ名</label>
@@ -47,12 +42,13 @@
                     <label for="email" class="col-md-2">メールアドレス</label>
                     <input type="email" id="email" name="email" class="form-control d-inline col-md-7" required>
                 </div>
+                <div class="row mb-2">
+                    <label for="password" class="col-md-2">パスワード</label>
+                    <input type="password" id="password" name="password" class="form-control d-inline col-md-7" required>
+                </div>
             </form>
             <div class="mb-2">
                 <button type="submit" class="btn btn-success">保存</button>
-            </div>
-            <div>
-                <button type="button" class="btn btn-danger">退会</button>
             </div>
         </div>
         <div>
@@ -60,3 +56,5 @@
         </div>
     </div>
 @endsection
+
+

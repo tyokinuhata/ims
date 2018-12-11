@@ -32,4 +32,14 @@ class UserController extends Controller
     {
         return view('seller.user.edit');
     }
+    /**
+     * パスワード変更画面
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function password()
+    {
+
+        return view('seller.user.password');
+    }
 }
