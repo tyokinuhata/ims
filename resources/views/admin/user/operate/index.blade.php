@@ -60,7 +60,9 @@
                     </tr>
                 </table>
                 <div class="mb-2">
-                    <a href="{{ url("/admin/user/operate/history/{$user->user_id}") }}" class="mr-2">購入履歴</a>
+                    @customer($user->type)
+                        <a href="{{ url("/admin/user/operate/history/{$user->user_id}") }}" class="mr-2">購入履歴</a>
+                    @endcustomer
                     @admin(Auth::user()->type)
                         <a href="{{ url("/admin/user/operate/edit/{$user->user_id}") }}" class="mr-2">ユーザ情報編集</a>
                         <a href="{{ url("/admin/user/operate/password/{$user->user_id}") }}" class="mr-2">パスワード変更</a>
