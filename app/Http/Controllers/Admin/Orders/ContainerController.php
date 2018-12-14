@@ -46,21 +46,6 @@ class ContainerController extends Controller
     }
 
     /**
-     * 返送待ち移動処理
-     *
-     * @param ReturnRequest $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
-    public function return(ReturnRequest $request)
-    {
-        Product::where('id', $request->product_id)->update([
-            'product_status_id' => 4,
-        ]);
-
-        return redirect('/admin/orders/container');
-    }
-
-    /**
      * 廃棄処分待ち移動処理
      *
      * @param DisposalRequest $request

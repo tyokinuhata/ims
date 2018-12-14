@@ -14,5 +14,6 @@
             @include('layouts.navbar')
             @include('layouts.sidebar')
         </div>
+        <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

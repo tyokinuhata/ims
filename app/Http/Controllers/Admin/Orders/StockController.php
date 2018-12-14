@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
  * Class historyController
  * @package App\Http\Controllers\Admin\Orders
  */
-class historyController extends Controller
+class StockController extends Controller
 {
     /**
      * 入庫履歴一覧画面
@@ -20,6 +20,6 @@ class historyController extends Controller
      */
     public function index()
     {
-        return view('admin.orders.history');
+        return view('admin.orders.stock');
     }
 }

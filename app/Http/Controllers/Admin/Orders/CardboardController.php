@@ -15,16 +15,18 @@ use App\Http\Requests\Admin\Orders\SendRequest;
 class CardboardController extends Controller
 {
     /**
-     * ダンボール送付待ち一覧画面
+     * ダンボール一覧画面
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function wait()
+    public function index()
     {
-        $cardboards = CardboardSendingWait::where('status', 'wait')->paginate(10);
+        $waitCardboards = CardboardSendingWait::where('status', 'wait')->paginate(10);
+        $doneCardboards = CardboardSendingWait::where('status', 'done')->paginate(10);
 
-        return view('admin.orders.cardboard.wait', [
-            'cardboards' => $cardboards,
+        return view('admin.orders.cardboard', [
+            'waitCardboards' => $waitCardboards,
+            'doneCardboards' => $doneCardboards,
         ]);
     }
 
@@ -40,20 +42,6 @@ class CardboardController extends Controller
             'status' => 'done',
         ]);
 
-        return redirect('/admin/orders/cardboard/wait');
-    }
-
-    /**
-     * ダンボール送付済み一覧
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function done()
-    {
-        $cardboards = CardboardSendingWait::where('status', 'done')->paginate(10);
-
-        return view('admin.orders.cardboard.done', [
-            'cardboards' => $cardboards,
-        ]);
+        return redirect('/admin/orders/cardboard');
     }
 }

@@ -17,7 +17,6 @@
                         <th>安全在庫数</th>
                         <th>&nbsp;</th>
                         <th>&nbsp;</th>
-                        <th>&nbsp;</th>
                     </tr>
                     @foreach ($products as $product)
                         <tr>
@@ -32,13 +31,6 @@
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <button type="submit" class="btn btn-primary">棚入れ</button>
-                                </form>
-                            </td>
-                            <td>
-                                <form method="POST" action="{{ url('/admin/orders/container/return') }}">
-                                    @csrf
-                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                    <button type="submit" class="btn btn-success">返送待ち</button>
                                 </form>
                             </td>
                             <td>
