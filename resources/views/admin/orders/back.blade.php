@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="h1 mb-3">承認待ち一覧</h1>
+        <h1 class="h1 mb-3">返送待ち一覧</h1>
         <div>
             @if (count($products) === 0)
                 <p>該当レコードが見つかりませんでした。</p>
@@ -27,17 +27,17 @@
                             <td>{{ $product->stock->stock_number }}個</td>
                             <td>{{ $product->stock->safety_stock_number }}個</td>
                             <td>
-                                <form method="POST" action="{{ url('/admin/orders/unapproved/approve') }}">
+                                <form method="POST" action="{{ url('/admin/orders/back/send') }}">
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                    <button type="submit" class="btn btn-primary">承認</button>
+                                    <button type="submit" class="btn btn-primary">返送</button>
                                 </form>
                             </td>
                             <td>
-                                <form method="POST" action="{{ url('/admin/orders/unapproved/noApprove') }}">
+                                <form method="POST" action="{{ url('/admin/orders/back/disposal') }}">
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                    <button type="submit" class="btn btn-danger">否承認</button>
+                                    <button type="submit" class="btn btn-danger">廃棄待ち</button>
                                 </form>
                             </td>
                         </tr>

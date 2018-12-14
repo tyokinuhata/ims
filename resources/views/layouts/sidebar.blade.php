@@ -17,7 +17,10 @@
                         </li>
                         <li class="nav-item">発注・入庫系</li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin/orders/cardboard') }}">ダンボール送付待ち一覧</a>
+                            <a class="nav-link" href="{{ url('/admin/orders/cardboard/wait') }}">ダンボール配送待ち一覧</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/admin/orders/cardboard/done') }}">ダンボール配送済み一覧</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/admin/orders/unapproved') }}">承認待ち一覧</a>
@@ -26,10 +29,16 @@
                             <a class="nav-link" href="{{ url('/admin/orders/container') }}">コンテナ待ち一覧</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin/orders/return') }}">返送待ち一覧</a>
+                            <a class="nav-link" href="{{ url('/admin/orders/back') }}">返送待ち一覧</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/admin/orders/disposal') }}">廃棄処分待ち一覧</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/admin/orders/history') }}">入庫履歴</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/admin/orders/status') }}">強制ステータス変更</a>
                         </li>
                         <li class="nav-item">納品系</li>
                         <li class="nav-item">

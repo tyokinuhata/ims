@@ -6,20 +6,20 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 /**
- * 返送待ち系コントローラ
+ * 強制ステータス変更系コントローラ
  *
- * Class ReturnController
+ * Class StatusController
  * @package App\Http\Controllers\Admin\Orders
  */
-class ReturnController extends Controller
+class StatusController extends Controller
 {
     /**
-     * 返送待ち一覧画面
+     * 強制ステータス変更画面
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        return view('admin.orders.return');
+        return view('admin.orders.status');
     }
 }
