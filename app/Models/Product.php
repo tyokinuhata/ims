@@ -59,4 +59,17 @@ class Product extends Model
         $value = str_replace('-', '/', $value[0]);
         return $value;
     }
+
+    /**
+     * updated_atのアクセサー
+     *
+     * @param $value
+     * @return array|mixed
+     */
+    public function getUpdatedAtAttribute($value)
+    {
+        $value = explode(' ', $value);
+        $value = str_replace('-', '/', $value[0]);
+        return $value;
+    }
 }

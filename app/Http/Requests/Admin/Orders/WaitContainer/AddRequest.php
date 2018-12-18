@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\Orders\Back;
+namespace App\Http\Requests\Admin\Orders\WaitContainer;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DisposalRequest extends FormRequest
+class AddRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

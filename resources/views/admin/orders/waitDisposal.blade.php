@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="h1 mb-3">未承認一覧</h1>
+        <h1 class="h1 mb-3">廃棄処分待ち一覧</h1>
         <div>
             @if (count($products) === 0)
                 <p>該当レコードが見つかりませんでした。</p>
@@ -15,8 +15,7 @@
                         <th>商品名</th>
                         <th>個数</th>
                         <th>安全在庫数</th>
-                        <th>登録日</th>
-                        <th>&nbsp;</th>
+                        <th>ステータス移動日</th>
                         <th>&nbsp;</th>
                     </tr>
                     @foreach ($products as $product)
@@ -35,19 +34,12 @@
                             </td>
                             <td>{{ $product->stock->stock_number }}個</td>
                             <td>{{ $product->stock->safety_stock_number }}個</td>
-                            <td>{{ $product->created_at }}</td>
+                            <td>{{ $product->updated_at }}</td>
                             <td>
-                                <form method="POST" action="{{ url('/admin/orders/unapproved/approve') }}">
+                                <form method="POST" action="{{ url('/admin/orders/waitDisposal/disposal') }}">
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                    <button type="submit" class="btn btn-primary">承認</button>
-                                </form>
-                            </td>
-                            <td>
-                                <form method="POST" action="{{ url('/admin/orders/unapproved/noApprove') }}">
-                                    @csrf
-                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                    <button type="submit" class="btn btn-danger">否承認</button>
+                                    <button type="submit" class="btn btn-danger">廃棄</button>
                                 </form>
                             </td>
                         </tr>

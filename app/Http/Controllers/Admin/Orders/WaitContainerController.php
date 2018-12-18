@@ -4,44 +4,44 @@ namespace App\Http\Controllers\Admin\Orders;
 
 use App\Models\Product;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Orders\Back\DisposalRequest;
-use App\Http\Requests\Admin\Orders\Back\SendRequest;
+use App\Http\Requests\Admin\Orders\WaitContainer\AddRequest;
+use App\Http\Requests\Admin\Orders\WaitContainer\DisposalRequest;
 
 /**
- * 返送待ち系コントローラ
+ * コンテナ待ち系コントローラ
  *
- * Class BackController
+ * Class WaitContainerController
  * @package App\Http\Controllers\Admin\Orders
  */
-class BackController extends Controller
+class WaitContainerController extends Controller
 {
     /**
-     * 返送待ち一覧画面
+     * コンテナ待ち一覧画面
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        $products = Product::where('product_status_id', 4)->paginate(10);
+        $products = Product::where('product_status_id', 2)->oldest('created_at')->paginate(10);
 
-        return view('admin.orders.back', [
+        return view('admin.orders.waitContainer', [
             'products' => $products,
         ]);
     }
 
     /**
-     * 返送待ち移動処理
+     * コンテナ追加処理
      *
-     * @param SendRequest $request
+     * @param AddRequest $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function send(SendRequest $request)
+    public function add(AddRequest $request)
     {
         Product::where('id', $request->product_id)->update([
-            'product_status_id' => 5,
+            'product_status_id' => 3,
         ]);
 
-        return redirect('admin/orders/back');
+        return redirect('/admin/orders/waitContainer');
     }
 
     /**
@@ -50,12 +50,12 @@ class BackController extends Controller
      * @param DisposalRequest $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function disposal(DisposalRequest $request)
+    public function waitDisposal(DisposalRequest $request)
     {
         Product::where('id', $request->product_id)->update([
             'product_status_id' => 6,
         ]);
 
-        return redirect('admin/orders/back');
+        return redirect('/admin/orders/waitContainer');
     }
 }

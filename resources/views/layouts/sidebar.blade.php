@@ -20,23 +20,25 @@
                             <a class="nav-link" href="{{ url('/admin/orders/cardboard') }}">ダンボール一覧</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin/orders/unapproved') }}">承認待ち一覧</a>
+                            <a class="nav-link" href="{{ url('/admin/orders/unapproved') }}">未承認一覧</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin/orders/container') }}">コンテナ待ち一覧</a>
+                            <a class="nav-link" href="{{ url('/admin/orders/waitContainer') }}">コンテナ待ち一覧</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin/orders/back') }}">返送待ち一覧</a>
+                            <a class="nav-link" href="{{ url('/admin/orders/waitBack') }}">返送待ち一覧</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin/orders/disposal') }}">廃棄処分待ち一覧</a>
+                            <a class="nav-link" href="{{ url('/admin/orders/waitDisposal') }}">廃棄処分待ち一覧</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/admin/orders/stock') }}">在庫検索</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin/orders/status') }}">強制ステータス変更</a>
-                        </li>
+                        @admin(Auth::user()->type)
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/admin/orders/status') }}">強制ステータス変更</a>
+                            </li>
+                        @endadmin
                         <li class="nav-item">納品系</li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/admin/delivery/yet') }}">未納品一覧</a>

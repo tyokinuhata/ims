@@ -21,8 +21,8 @@
                     @else
                         <table class="table table-striped">
                             <tr>
-                                <th>ユーザ名</th>
                                 <th>ユーザID</th>
+                                <th>ユーザ名</th>
                                 <th>サイズ</th>
                                 <th>箱数</th>
                                 <th>注文日</th>
@@ -30,8 +30,12 @@
                             </tr>
                             @foreach ($waitCardboards as $cardboard)
                                 <tr>
-                                    <td>{{ $cardboard->user->username }}</td>
-                                    <td>{{ $cardboard->user->user_id }}</td>
+                                    <td>
+                                        <a href="{{ url('/admin/user/operate?user_id=' . $cardboard->user->user_id) }}" target="_blank">{{ $cardboard->user->user_id }}</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ url('/admin/user/operate?user_id=' . $cardboard->user->user_id) }}" target="_blank">{{ $cardboard->user->username }}</a>
+                                    </td>
                                     <td>{{ $cardboard->cardboard->size }}</td>
                                     <td>{{ $cardboard->number }}</td>
                                     <td>{{ $cardboard->created_at }}</td>
@@ -39,7 +43,7 @@
                                         <form method="POST" action="{{ url('/admin/orders/cardboard/send') }}">
                                             @csrf
                                             <input type="hidden" name="cardboard_id" value="{{ $cardboard->id }}">
-                                            <button type="submit" class="btn btn-danger">配送</button>
+                                            <button type="submit" class="btn btn-primary">配送</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -57,8 +61,8 @@
                     @else
                         <table class="table table-striped">
                             <tr>
-                                <th>ユーザ名</th>
                                 <th>ユーザID</th>
+                                <th>ユーザ名</th>
                                 <th>サイズ</th>
                                 <th>箱数</th>
                                 <th>注文日</th>
@@ -66,8 +70,12 @@
                             </tr>
                             @foreach ($doneCardboards as $cardboard)
                                 <tr>
-                                    <td>{{ $cardboard->user->username }}</td>
-                                    <td>{{ $cardboard->user->user_id }}</td>
+                                    <td>
+                                        <a href="{{ url('/admin/user/operate?user_id=' . $cardboard->user->user_id) }}" target="_blank">{{ $cardboard->user->user_id }}</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ url('/admin/user/operate?user_id=' . $cardboard->user->user_id) }}" target="_blank">{{ $cardboard->user->username }}</a>
+                                    </td>
                                     <td>{{ $cardboard->cardboard->size }}</td>
                                     <td>{{ $cardboard->number }}</td>
                                     <td>{{ $cardboard->created_at }}</td>

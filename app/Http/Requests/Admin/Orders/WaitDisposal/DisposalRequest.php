@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Orders\Container;
+namespace App\Http\Requests\Admin\Orders\WaitDisposal;
 
 use Illuminate\Foundation\Http\FormRequest;
 

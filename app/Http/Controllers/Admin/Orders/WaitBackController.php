@@ -4,45 +4,44 @@ namespace App\Http\Controllers\Admin\Orders;
 
 use App\Models\Product;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Orders\Container\AddRequest;
-use App\Http\Requests\Admin\Orders\Container\ReturnRequest;
-use App\Http\Requests\Admin\Orders\Container\DisposalRequest;
+use App\Http\Requests\Admin\Orders\WaitBack\DisposalRequest;
+use App\Http\Requests\Admin\Orders\WaitBack\SendRequest;
 
 /**
- * コンテナ待ち系コントローラ
+ * 返送待ち系コントローラ
  *
- * Class ContainerController
+ * Class WaitBackController
  * @package App\Http\Controllers\Admin\Orders
  */
-class ContainerController extends Controller
+class WaitBackController extends Controller
 {
     /**
-     * コンテナ待ち一覧画面
+     * 返送待ち一覧画面
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        $products = Product::where('product_status_id', 2)->paginate(10);
+        $products = Product::where('product_status_id', 4)->oldest('created_at')->paginate(10);
 
-        return view('admin.orders.container', [
+        return view('admin.orders.waitBack', [
             'products' => $products,
         ]);
     }
 
     /**
-     * コンテナ追加処理
+     * 返送待ち移動処理
      *
-     * @param AddRequest $request
+     * @param SendRequest $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function add(AddRequest $request)
+    public function back(SendRequest $request)
     {
         Product::where('id', $request->product_id)->update([
-            'product_status_id' => 3,
+            'product_status_id' => 5,
         ]);
 
-        return redirect('/admin/orders/container');
+        return redirect('admin/orders/waitBack');
     }
 
     /**
@@ -51,12 +50,12 @@ class ContainerController extends Controller
      * @param DisposalRequest $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function disposal(DisposalRequest $request)
+    public function waitDisposal(DisposalRequest $request)
     {
         Product::where('id', $request->product_id)->update([
             'product_status_id' => 6,
         ]);
 
-        return redirect('/admin/orders/container');
+        return redirect('admin/orders/waitBack');
     }
 }

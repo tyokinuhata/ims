@@ -69,23 +69,24 @@ Route::prefix('orders')->group(function () {
     Route::get('cardboard', 'Admin\Orders\CardboardController@index');
     Route::post('cardboard/send', 'Admin\Orders\CardboardController@send');
 
-    // 承認待ち一覧
+    // 未承認一覧
     Route::get('unapproved', 'Admin\Orders\UnapprovedController@index');
     Route::post('unapproved/approve', 'Admin\Orders\UnapprovedController@approve');
     Route::post('unapproved/noApprove', 'Admin\Orders\UnapprovedController@noApprove');
 
     // コンテナ待ち一覧
-    Route::get('container', 'Admin\Orders\ContainerController@index');
-    Route::post('container/add', 'Admin\Orders\ContainerController@add');
-    Route::post('container/disposal', 'Admin\Orders\ContainerController@disposal');
+    Route::get('waitContainer', 'Admin\Orders\WaitContainerController@index');
+    Route::post('waitContainer/add', 'Admin\Orders\WaitContainerController@add');
+    Route::post('waitContainer/waitDisposal', 'Admin\Orders\WaitContainerController@waitDisposal');
 
     // 返送待ち一覧
-    Route::get('back', 'Admin\Orders\BackController@index');
-    Route::post('back/send', 'Admin\Orders\BackController@send');
-    Route::post('back/disposal', 'Admin\Orders\BackController@disposal');
+    Route::get('waitBack', 'Admin\Orders\WaitBackController@index');
+    Route::post('waitBack/back', 'Admin\Orders\WaitBackController@back');
+    Route::post('waitBack/waitDisposal', 'Admin\Orders\WaitBackController@waitDisposal');
 
     // 廃棄処分待ち一覧
-    Route::get('disposal', 'Admin\Orders\DisposalController@index');
+    Route::get('waitDisposal', 'Admin\Orders\WaitDisposalController@index');
+    Route::post('waitDisposal/disposal', 'Admin\Orders\WaitDisposalController@disposal');
 
     // 在庫検索
     Route::get('stock', 'Admin\Orders\StockController@index');

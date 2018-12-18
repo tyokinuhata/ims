@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\Orders\Back;
+namespace App\Http\Requests\Admin\Orders\WaitBack;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SendRequest extends FormRequest
+class DisposalRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
