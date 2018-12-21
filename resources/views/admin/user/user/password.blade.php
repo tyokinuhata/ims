@@ -37,9 +37,10 @@
                     @endif
                 </div>
                 <input type="hidden" name="user_id" value="{{ $user->user_id }}">
-                <div>
+                <div class="mb-2">
                     <button type="submit" class="btn btn-danger">保存</button>
                 </div>
+                <p>{{ session('success_msg') }}</p>
             </form>
         </div>
         <div>

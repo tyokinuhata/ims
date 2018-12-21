@@ -62,7 +62,7 @@ class UserController extends Controller
             'email' => $request->email,
         ]);
 
-        return redirect('/admin/user/edit');
+        return redirect('/admin/user/edit')->with('success_msg', '編集に成功しました。');
     }
 
     /**
@@ -91,6 +91,6 @@ class UserController extends Controller
             'password' => Hash::make($request->new_password),
         ]);
 
-        return redirect('/admin/user/password');
+        return redirect('/admin/user/password')->with('success_msg', '変更に成功しました。');
     }
 }

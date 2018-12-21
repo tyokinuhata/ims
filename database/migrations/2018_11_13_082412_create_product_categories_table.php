@@ -21,6 +21,7 @@ class CreateProductCategoriesTable extends Migration
         Schema::create('product_categories', function (Blueprint $table) {
             $table->increments('id')->comment('カテゴリID');
             $table->string('name')->comment('カテゴリ名');
+            $table->string('en_name')->comment('英名');
             $table->timestamps();
         });
     }

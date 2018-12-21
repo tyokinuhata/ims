@@ -28,6 +28,16 @@ class Product extends Model
     }
 
     /**
+     * 商品ステータスとのリレーション
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function productStatus()
+    {
+        return $this->belongsTo('App\Models\ProductStatus');
+    }
+
+    /**
      * ユーザとのリレーション
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

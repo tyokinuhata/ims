@@ -87,7 +87,7 @@ class OperateController extends Controller
             'email' => $request->email,
         ]);
 
-        return redirect("/admin/user/operate/edit/{$request->new_user_id}");
+        return redirect("/admin/user/operate/edit/{$request->new_user_id}")->with('success_msg', '編集に成功しました。');
     }
 
     /**
@@ -117,7 +117,7 @@ class OperateController extends Controller
             'password' => Hash::make($request->new_password),
         ]);
 
-        return redirect("/admin/user/operate/password/{$request->user_id}");
+        return redirect("/admin/user/operate/password/{$request->user_id}")->with('success_msg', '変更に成功しました。');
     }
 
     /**
@@ -130,7 +130,7 @@ class OperateController extends Controller
     {
         User::where('user_id', $request->user_id)->delete();
 
-        return redirect("/admin/user/operate/edit/{$request->user_id}");
+        return redirect("/admin/user/operate/edit/{$request->user_id}")->with('success_msg', '凍結に成功しました。');
     }
 
     /**
@@ -143,7 +143,7 @@ class OperateController extends Controller
     {
         User::where('user_id', $request->user_id)->restore();
 
-        return redirect("/admin/user/operate/edit/{$request->user_id}");
+        return redirect("/admin/user/operate/edit/{$request->user_id}")->with('success_msg', '凍結解除に成功しました。');
     }
 
     /**
@@ -175,6 +175,6 @@ class OperateController extends Controller
             'type' => $request->type,
         ]);
 
-        return redirect('/admin/user/operate/add');
+        return redirect('/admin/user/operate/add')->with('success_msg', '追加に成功しました。');
     }
 }

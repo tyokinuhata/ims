@@ -142,6 +142,7 @@
                 <div>
                     <button type="submit" class="btn btn-primary">追加</button>
                 </div>
+                <p>{{ session('success_msg') }}</p>
             </form>
         </div>
         <div>

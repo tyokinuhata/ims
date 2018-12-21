@@ -30,6 +30,8 @@ class IndexRequest extends FormRequest
     public function rules()
     {
         return [
+            'status' => [ 'sometimes', 'required', 'in:none,unapproved,wait_container,stock,wait_return,return,wait_disposal,disposal', ],
+            'category' => [ 'sometimes', 'required', 'in:none,tablet,capsule,powder,liquid,inhalant,spray,lozenge,medical_supplies,medical_device,commodity,other', ],
             'keywords' => [ 'sometimes', 'required', 'min:1', 'max:500', 'string', ],
         ];
     }

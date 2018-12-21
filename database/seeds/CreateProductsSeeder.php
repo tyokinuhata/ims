@@ -524,7 +524,7 @@ class CreateProductsSeeder extends Seeder
         Product::create([
             'name' => 'かわいいにんぎょう',
             'price' => 0,
-            'img' => 'storage/images/products/pokè_doll.png',
+            'img' => 'storage/images/products/poke_doll.png',
             'description' => '敵の気を引いて野生のにんげんとの戦闘から必ず逃げられる。',
             'product_status_id' => 4,
             'product_category_id' => 8,

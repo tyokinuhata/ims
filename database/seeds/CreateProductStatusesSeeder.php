@@ -14,39 +14,46 @@ class CreateProductStatusesSeeder extends Seeder
     {
         ProductStatus::truncate();
 
-        // 承認待ち: 1
+        // 1
         ProductStatus::create([
-            'status' => 'unapproved',
+            'name' => '未承認',
+            'en_name' => 'unapproved',
         ]);
 
-        // コンテナ待ち: 2
+        // 2
         ProductStatus::create([
-            'status' => 'wait_stock',
+            'name' => 'コンテナ待ち',
+            'en_name' => 'wait_container',
         ]);
 
-        // 在庫: 3
+        // 3
         ProductStatus::create([
-            'status' => 'stocked',
+            'name' => '在庫',
+            'en_name' => 'stock',
         ]);
 
-        // 返送待ち: 4
+        // 4
         ProductStatus::create([
-            'status' => 'wait_back',
+            'name' => '返送待ち',
+            'en_name' => 'wait_return',
         ]);
 
-        // 返送後: 5
+        // 5
         ProductStatus::create([
-            'status' => 'backed',
+            'name' => '返送後',
+            'en_name' => 'return',
         ]);
 
-        // 廃棄待ち: 6
+        // 6
         ProductStatus::create([
-            'status' => 'wait_disposal',
+            'name' => '廃棄待ち',
+            'en_name' => 'wait_disposal',
         ]);
 
-        // 廃棄後: 7
+        // 7
         ProductStatus::create([
-            'status' => 'disposal',
+            'name' => '廃棄後',
+            'en_name' => 'disposal',
         ]);
     }
 }
